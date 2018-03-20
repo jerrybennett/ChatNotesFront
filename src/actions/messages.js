@@ -1,25 +1,66 @@
 import MessagesApi from "../services/messagesApi"
 
-export const ADD_MESSAGE = "ADD_MESSAGE"
-export const FETCHED_MESSAGES = "FETCHED_MESSAGES"
-export const FETCHING_MESSAGES = "FETCHING_MESSAGES"
-
 export function addMessage(message){
-  console.log("addMessage", message)
-  return {
-    type: "ADD_MESSAGE",
-    payload: message
+  return function(dispatch){
+    MessagesApi.addMessage(message)
+    .then(response => {
+      dispatch({
+        type: "ADD_MESSAGE",
+        payload: response
+      })
+    })
   }
 }
 
-// let messageID = 0
-// export function addMessage(message, user) {
-//   return {
-//     type: ADD_MESSAGE,
-//     messageID: messageID++,
-//     payload: message, user, messageID
-//   }
-// }
+export function fetchMessages() {
+  return function(dispatch) {
+    MessagesApi.fetchMessages()
+    .then(messages => {
+      dispatch({
+        type: "FETCHED_MESSAGES",
+        payload: messages
+      })
+    })
+  }
+}
+
+export function addUser(user){
+  return function(dispatch){
+    MessagesApi.addUser(user)
+    .then(response => {
+      dispatch({
+        type: "ADD_USER",
+        payload: response
+      })
+    })
+  }
+}
+
+export function logInUser(user){
+  return function(dispatch){
+    MessagesApi.logInUser(user)
+    .then(response => {
+      dispatch({
+        type: "LOGIN_USER",
+        payload: response
+      })
+    })
+  }
+}
+
+export function fetchChatrooms() {
+  return function(dispatch) {
+    MessagesApi.fetchChatrooms()
+    .then(chat_rooms => {
+      dispatch({
+        type: "FETCH_CHATROOMS",
+        payload: chat_rooms
+      })
+    })
+  }
+}
+
+
 
 // sendMesssage = (event) => {
 //   fetch(`http://localhost:3000/chatrooms/${this.props.chatroom.id}/add_message`, {

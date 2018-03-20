@@ -8,13 +8,16 @@ import { Provider } from "react-redux"
 import thunk from "redux-thunk";
 import rootReducer from "./reducers/rootReducer"
 import Cable from 'actioncable'
+import { BrowserRouter } from 'react-router-dom'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 console.log(store)
 console.log(store.getState())
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>, document.getElementById('root')
 );
 registerServiceWorker();

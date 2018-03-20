@@ -7,6 +7,7 @@ class ChatRoom extends React.Component {
   render () {
     return (
       <div>
+        <Message />
         <Messages />
       </div>
     );
