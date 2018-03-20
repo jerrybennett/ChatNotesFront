@@ -10,7 +10,8 @@ import rootReducer from "./reducers/rootReducer"
 import Cable from 'actioncable'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-
+console.log(store)
+console.log(store.getState())
 ReactDOM.render(
   <Provider store={store}>
     <App />

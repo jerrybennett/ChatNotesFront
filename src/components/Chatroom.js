@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import Message from './Message'
 import Messages from './Messages'
-import ChatRoom from './Chatroom'
 
 
-class ChatContainer extends React.Component {
+class ChatRoom extends React.Component {
   render () {
     return (
       <div>
-        <ChatRoom />
+        <Messages />
       </div>
     );
   }
 }
 
-export default ChatContainer;
+export default ChatRoom;
