@@ -18,7 +18,7 @@ class AddMessage extends Component {
   handleSend = (e) => {
     console.log("submitting message", this.state)
     e.preventDefault()
-    this.props.addMessage(this.state.message)
+    this.props.addMessage(this.state.message, this.props.room)
     this.setState({
       message: ''
     })

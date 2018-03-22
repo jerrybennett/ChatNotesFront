@@ -13,7 +13,7 @@ class Messages extends Component {
     console.log(this.props)
     return (
       <div>
-        {this.props.messages.map(m => <div>{m.text}</div>)}
+        {this.props.messages.map(m => <div key={m.id}>{m.text}</div>)}
       </div>
     )
   }

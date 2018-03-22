@@ -1,8 +1,8 @@
 import MessagesApi from "../services/messagesApi"
 
-export function addMessage(message){
+export function addMessage(message, room){
   return function(dispatch){
-    MessagesApi.addMessage(message)
+    MessagesApi.addMessage(message, room)
     .then(response => {
       dispatch({
         type: "ADD_MESSAGE",
