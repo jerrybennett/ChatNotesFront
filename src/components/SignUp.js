@@ -27,6 +27,7 @@ class SignUp extends Component {
       email: ''
     })
 
+    console.log(this.props)
     this.props.history.push('/chats')
   }
 

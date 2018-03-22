@@ -1,5 +1,6 @@
 let defaultState = {
-  users: []
+  users: [],
+  currentUser: null
 }
 
 function users(state = defaultState, action) {
@@ -7,7 +8,8 @@ function users(state = defaultState, action) {
     case "ADD_USER":
       console.log('hit me!')
       return {
-        users: [ ...state.users, action.payload]
+        users: [ ...state.users, action.payload],
+        currentUser: action.payload
       }
       break;
     // case "FETCHED_USER":

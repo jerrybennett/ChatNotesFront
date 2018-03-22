@@ -9,23 +9,23 @@ class AddMessage extends Component {
   }
 
   handleInput = (e) => {
-    console.log(this.state.message)
+    // console.log(this.state.message)
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
   handleSend = (e) => {
-    console.log("submitting message", this.state)
+    // console.log("submitting message", this.state)
     e.preventDefault()
-    this.props.addMessage(this.state.message, this.props.room)
+    this.props.addMessage(this.state.message, this.props.roomID, this.props.currentUser.id)
     this.setState({
       message: ''
     })
   }
 
   render () {
-    console.log(this.props)
+    console.log(this.props.currentUser)
     return (
       <form onSubmit={this.handleSend}>
         <input type="text" name="message" value={this.state.message} onChange={this.handleInput} />
@@ -37,7 +37,8 @@ class AddMessage extends Component {
 
 function mapStateToProps(state) {
   return {
-    message: state.message
+    message: state.message,
+    currentUser: state.users.currentUser
   }
 }
 

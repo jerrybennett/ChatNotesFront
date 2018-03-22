@@ -2,45 +2,39 @@ import React, { Component } from 'react'
 import AddMessage from './AddMessage'
 import Messages from './Messages'
 import { connect } from 'react-redux'
-import { fetchChatrooms } from "../actions/messages";
+import { getChatRoomMessages } from "../actions/messages";
 import {Route, Switch, Redirect} from 'react-router-dom'
 
 class ChatRoom extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchChatrooms()
-    // dispatch some action to fetch based on the id
-  }
-
-  // findById = (routerParams) => {
-  //   return this.props.chatrooms.find(function(room){
-  //     return room.id === parseInt(routerParams.match.params.id)
-  //   })
+  // componentDidMount() {
+  //   // this.props.fetchChatrooms()
+  //   // this.props.getChatRoomMessages()
+  //   // dispatch some action to fetch based on the id
   // }
 
   render () {
-    let room = parseInt(this.props.match.params.id)
-    console.log(this.props.match.params)
-    console.log(this.props.chatrooms)
-    console.log(this.props)
+    let roomID = parseInt(this.props.match.params.id)
+    // console.log(this.props.match.params)
+    // console.log(this.props.chatrooms)
+    // console.log('Chatroom', this.props)
     // if i know the id you can fetch based on id
 
 
     // pass down the chat mesages to the messages component
     return (
       <div>
-        {/* Rename Message */}
-        <AddMessage  room={room}/>
-        <Messages />
+        <AddMessage  roomID={ roomID } />
+        <Messages roomID={ roomID } />
       </div>
     );
   }
 }
 
-function mapStateToProps(state){
-  return {
-    chatrooms: state.chatrooms.chatrooms
-  }
-}
+// function mapStateToProps(state){
+//   return {
+//     chatrooms: state.chatrooms.chatrooms
+//   }
+// }
 
-export default connect(mapStateToProps, {fetchChatrooms})(ChatRoom)
+export default ChatRoom

@@ -1,8 +1,8 @@
 import MessagesApi from "../services/messagesApi"
 
-export function addMessage(message, room){
+export function addMessage(message, room, userID){
   return function(dispatch){
-    MessagesApi.addMessage(message, room)
+    MessagesApi.addMessage(message, room, userID)
     .then(response => {
       dispatch({
         type: "ADD_MESSAGE",
@@ -66,6 +66,30 @@ export function addChatRoom(name){
     .then(response => {
       dispatch({
         type: "ADD_CHATROOM",
+        payload: response
+      })
+    })
+  }
+}
+
+export function getChatRoomMessages(id) {
+  return function(dispatch) {
+    MessagesApi.getChatRoomMessages(id)
+    .then(response => {
+      dispatch({
+        type: "FETCH_CHATROOM_MESSAGES",
+        payload: response
+      })
+    })
+  }
+}
+
+export function getChatRoomUsers(id) {
+  return function(dispatch) {
+    MessagesApi.getChatRoomUsers(id)
+    .then(response => {
+      dispatch({
+        type: "FETCH_CHATROOM_USERS",
         payload: response
       })
     })

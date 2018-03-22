@@ -11,6 +11,10 @@ function messages(state = defaultState, action) {
       }
       break;
 
+    case "FETCH_CHATROOM_MESSAGES":
+      return { ...state, messages: action.payload }
+      break;
+
     case "FETCHED_MESSAGES":
       return { ...state, messages: action.payload }
       break;

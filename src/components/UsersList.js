@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getChatRoomMessages } from "../actions/messages";
+import { getChatRoomUsers } from "../actions/messages";
 
-class Messages extends Component {
+class UsersList extends Component {
 
   componentDidMount(){
-    this.props.getChatRoomMessages(this.props.roomID)
+    this.props.getChatRoomUsers(this.props.roomID)
   }
 
   render() {
@@ -23,8 +23,8 @@ class Messages extends Component {
 
 function mapStateToProps(state){
   return {
-    messages: state.messages.messages
+    users: state.users.users
   }
 }
 
-export default connect(mapStateToProps, { getChatRoomMessages })(Messages)
+export default connect(mapStateToProps, { getChatRoomUsers })(UsersList)

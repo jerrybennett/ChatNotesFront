@@ -5,7 +5,7 @@ class MessagesApi {
     .then(res => res.json());
   }
 
-  static addMessage(message, room) {
+  static addMessage(message, room, userID) {
     // console.log("ADAPTER", message)
     return fetch(`http://localhost:3000/api/v1/messages`, {
       method: "POST",
@@ -15,7 +15,7 @@ class MessagesApi {
       },
       body: JSON.stringify({
         text: message,
-        user_id: 1,
+        user_id: userID,
         chat_room_id: room
       })
     }).then(res => res.json())
@@ -62,6 +62,16 @@ class MessagesApi {
         name: name
       })
     }).then(res => res.json())
+  }
+
+  static getChatRoomMessages(id) {
+    return fetch(`http://localhost:3000/api/v1/chat_rooms/${id}/messages`)
+      .then(res => res.json())
+  }
+
+  static getChatRoomUsers(id) {
+    return fetch(`http://localhost:3000/api/v1/chat_rooms/${id}/users`)
+      .then(res => res.json())
   }
 
 }
