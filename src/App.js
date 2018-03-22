@@ -4,9 +4,9 @@ import './App.css';
 import ChatContainer from './components/ChatContainer'
 import NavBar from './components/NavBar'
 import SignUp from './components/SignUp'
-import AllChatRooms from './components/AllChatRooms'
+import ChatRooms from './components/ChatRooms'
+import Chatroom from './components/Chatroom'
 import { Route, Redirect, Switch } from 'react-router-dom'
-// import LogIn from'./components/LogIn'
 
 class App extends Component {
 
@@ -16,8 +16,9 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path='/' component={SignUp} />
-          <Route exact path='/chatroom/:id' />
-          <Route exact path='/chats' component={ChatContainer} />
+          <Route path={`/chatroom/:id`} component={Chatroom}/>
+          {/* <Route exact path='/chats' component={ChatContainer} /> */}
+          <Route path='/chats' component={ChatRooms} />
         </Switch>
       </div>
     );

@@ -51,15 +51,26 @@ export function logInUser(user){
 export function fetchChatrooms() {
   return function(dispatch) {
     MessagesApi.fetchChatrooms()
-    .then(chat_rooms => {
+    .then(response => {
       dispatch({
         type: "FETCH_CHATROOMS",
-        payload: chat_rooms
+        payload: response
       })
     })
   }
 }
 
+export function addChatRoom(name){
+  return function(dispatch){
+    MessagesApi.addChatRoom(name)
+    .then(response => {
+      dispatch({
+        type: "ADD_CHATROOM",
+        payload: response
+      })
+    })
+  }
+}
 
 
 // sendMesssage = (event) => {

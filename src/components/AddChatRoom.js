@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addMessage } from "../actions/messages"
+import { addChatRoom } from "../actions/messages"
 
-class Message extends Component {
+class AddChatRoom extends Component {
 
   state = {
-    message: ''
+    name: ''
   }
 
   handleInput = (e) => {
@@ -17,16 +17,17 @@ class Message extends Component {
   handleSend = (e) => {
     console.log("submitting message", this.state)
     e.preventDefault()
-    this.props.addMessage(this.state.message)
+    this.props.addChatRoom(this.state.name)
     this.setState({
-      message: ''
+      name: ''
     })
   }
 
   render () {
+    console.log(this.props)
     return (
       <form onSubmit={this.handleSend}>
-        <input type="text" name="message" value={this.state.message} onChange={this.handleInput} />
+        <input type="text" name="name" value={this.state.name} onChange={this.handleInput} />
         <input type="submit" name="submit" />
       </form>
     )
@@ -35,8 +36,8 @@ class Message extends Component {
 
 function mapStateToProps(state) {
   return {
-    message: state.message
+    name: state.name
   }
 }
 
-export default connect(mapStateToProps, { addMessage })(Message);
+export default connect(mapStateToProps, { addChatRoom })(AddChatRoom);

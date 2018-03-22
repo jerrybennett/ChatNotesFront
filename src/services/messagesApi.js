@@ -21,17 +21,6 @@ class MessagesApi {
     }).then(res => res.json())
   }
 
-
-  // let messageID = 0
-  // export function addMessage(message, user) {
-  //   return {
-  //     type: ADD_MESSAGE,
-  //     messageID: messageID++,
-  //     payload: message, user, messageID
-  //   }
-  // }
-
-
   static addUser(user) {
     // console.log("Adapter", user);
     return fetch(`http://localhost:3000/api/v1/users`,{
@@ -61,5 +50,19 @@ class MessagesApi {
       .then(res => res.json())
   }
 
+  static addChatRoom(name) {
+    // console.log("ADAPTER", message)
+    return fetch(`http://localhost:3000/api/v1/chat_rooms`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name
+      })
+    }).then(res => res.json())
+  }
+  
 }
 export default MessagesApi;

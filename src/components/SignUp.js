@@ -31,7 +31,7 @@ class SignUp extends Component {
   }
 
   render() {
-    console.log(this.state.username)
+    console.log(this.props)
     return (
       <form onSubmit={this.handleSubmit}>
         <label>UserName</label>

@@ -1,6 +1,5 @@
 let defaultState = {
-  messages: [],
-  chat_rooms: []
+  messages: []
 }
 
 function messages(state = defaultState, action) {
@@ -10,10 +9,6 @@ function messages(state = defaultState, action) {
       return {
         messages: [...state.messages, action.payload]
       }
-      break;
-
-    case "FETCH_CHATROOMS":
-      return { ...state, chat_rooms: action.payload }
       break;
 
     case "FETCHED_MESSAGES":

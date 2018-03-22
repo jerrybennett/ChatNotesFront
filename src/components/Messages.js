@@ -1,26 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import Message from './Message'
+// import AddMessage from './AddMessage'
 import { fetchMessages } from "../actions/messages";
 
 class Messages extends Component {
-  //
-  // componentWillMount(){
-  //   fetch('http://localhost:3000/api/v1/messages')
-  //   .then(res => res.json())
-  //   .then(messages => {
-  //     this.setState({
-  //       messages: messages
-  //     })
-  //   }).then(console.log)
-  //   // this.props.fetchMessages();
-  // }
 
   componentDidMount(){
     this.props.fetchMessages()
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         {this.props.messages.map(m => <div>{m.text}</div>)}

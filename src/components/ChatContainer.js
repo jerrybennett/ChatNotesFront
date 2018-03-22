@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import Message from './Message'
-import Messages from './Messages'
+// import AddMessage from './AddMessage'
+// import Messages from './Messages'
 import ChatRoom from './Chatroom'
-import AllChatRooms from './AllChatRooms'
+// import ChatRooms from './ChatRooms'
 
 
 class ChatContainer extends React.Component {
   render () {
     return (
       <div>
-        <h3>All ChatRooms</h3>
-        <AllChatRooms />
-        <h3>This is a ChatRoom</h3>
         <ChatRoom />
       </div>
     );
