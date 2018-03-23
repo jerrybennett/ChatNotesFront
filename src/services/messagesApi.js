@@ -74,5 +74,11 @@ class MessagesApi {
       .then(res => res.json())
   }
 
+  static deleteChatRoom(id) {
+    return fetch(`http://localhost:3000/api/v1/chat_rooms/${id}`, {
+      method: "DELETE",
+    }).then(res => res.json())
+  }
+
 }
 export default MessagesApi;

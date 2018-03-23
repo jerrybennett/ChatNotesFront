@@ -96,46 +96,14 @@ export function getChatRoomUsers(id) {
   }
 }
 
-
-// sendMesssage = (event) => {
-//   fetch(`http://localhost:3000/chatrooms/${this.props.chatroom.id}/add_message`, {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       content: this.state.content,
-//       user_id: 1
-//     })
-//   })
-//   .then(res => {
-//     this.setState({
-//       content: "",
-//     })
-//   })
-// }
-//
-// handleChange = (event) => {
-//   this.setState({
-//     content: event.target.value
-//   })
-// }
-//
-// export function fetchMessages() {
-//   return function(dispatch) {
-//     dispatch({ type: "FETCHING_MESSAGES" });
-//     MessagesApi.fetchMessages(1).then(messages => {
-//       dispatch({
-//         type: "FETCHED_MESSAGES",
-//         payload: 1
-//       })
-//     })
-//   }
-// }
-//
-// export function handleChange(e) {
-//     this.setState({
-//       message: e.target.value
-//     })
-//   }
+export function deleteChatRoom(id) {
+  return function(dispatch) {
+    MessagesApi.deleteChatRoom(id)
+    .then(response => {
+      dispatch({
+        type: "DELETE_CHATROOM",
+        payload: response
+      })
+    })
+  }
+}
