@@ -96,6 +96,18 @@ export function getChatRoomUsers(id) {
   }
 }
 
+export function getCurrentUser(id) {
+  return function(dispatch) {
+    MessagesApi.getCurrentUser(id)
+    .then(response => {
+      dispatch({
+        type: "SET_CURRENT_USER",
+        payload: response
+      })
+    })
+  }
+}
+
 
 // sendMesssage = (event) => {
 //   fetch(`http://localhost:3000/chatrooms/${this.props.chatroom.id}/add_message`, {

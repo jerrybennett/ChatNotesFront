@@ -6,9 +6,19 @@ import NavBar from './components/NavBar'
 import SignUp from './components/SignUp'
 import ChatRooms from './components/ChatRooms'
 import Chatroom from './components/Chatroom'
-import { Route, Redirect, Switch } from 'react-router-dom'
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
+import { getCurrentUser } from "./actions/messages";
+import { connect } from 'react-redux'
 
 class App extends Component {
+
+  componentDidMount(){
+    let id = localStorage.getItem("user_id")
+
+    if (id){
+      this.props.getCurrentUser(id)
+    }
+  }
 
   render() {
     return (
@@ -25,4 +35,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state){
+  return {
+    currentUser: state.users.currentUser
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));

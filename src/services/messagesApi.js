@@ -70,8 +70,25 @@ class MessagesApi {
   }
 
   static getChatRoomUsers(id) {
-    return fetch(`http://localhost:3000/api/v1/chat_rooms/${id}/users`)
+    return fetch(`http://localhost:3000/api/v1/users`)
       .then(res => res.json())
+  }
+
+  static getCurrentUser(id) {
+    return fetch(`http://localhost:3000/api/v1/users/${id}`)
+    .then(res => res.json())
+  }
+
+  static logInUser(user) {
+    // console.log("Adapter", user);
+    return fetch(`http://localhost:3000/api/v1/users`,{
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({user})
+    }).then(res => res.json())
   }
 
 }
