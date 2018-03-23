@@ -72,9 +72,9 @@ export function addChatRoom(name){
   }
 }
 
-export function getChatRoomMessages(id) {
+export function getChatRoomMessages(id, userID) {
   return function(dispatch) {
-    MessagesApi.getChatRoomMessages(id)
+    MessagesApi.getChatRoomMessages(id, userID)
     .then(response => {
       dispatch({
         type: "FETCH_CHATROOM_MESSAGES",

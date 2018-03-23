@@ -1,5 +1,6 @@
 let defaultState = {
-  messages: []
+  messages: [],
+  notes: []
 }
 
 function messages(state = defaultState, action) {
@@ -12,7 +13,7 @@ function messages(state = defaultState, action) {
       break;
 
     case "FETCH_CHATROOM_MESSAGES":
-      return { ...state, messages: action.payload }
+      return { ...state, messages: action.payload.messages, notes: action.payload.notes}
       break;
 
     case "FETCHED_MESSAGES":

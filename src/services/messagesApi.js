@@ -64,8 +64,17 @@ class MessagesApi {
     }).then(res => res.json())
   }
 
-  static getChatRoomMessages(id) {
-    return fetch(`http://localhost:3000/api/v1/chat_rooms/${id}/messages`)
+  static getChatRoomMessages(id, userId) {
+    return fetch(`http://localhost:3000/api/v1/chat_rooms/${id}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: userId
+      })
+    })
       .then(res => res.json())
   }
 

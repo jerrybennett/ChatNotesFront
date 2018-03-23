@@ -24,7 +24,7 @@ class UsersList extends Component {
     console.log(this.userList)
     return (
       <div>
-        {this.props.userList}
+        {this.userList()}
       </div>
     )
   }
