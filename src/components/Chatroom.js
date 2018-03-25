@@ -4,6 +4,7 @@ import Messages from './Messages'
 import { connect } from 'react-redux'
 import { getChatRoomMessages } from "../actions/messages";
 import {Route, Switch, Redirect} from 'react-router-dom'
+import UsersList from './UsersList'
 
 class ChatRoom extends React.Component {
 
@@ -26,15 +27,10 @@ class ChatRoom extends React.Component {
       <div>
         <AddMessage  roomID={ roomID } />
         <Messages roomID={ roomID } />
+        <UsersList roomID={ roomID } />
       </div>
     );
   }
 }
-
-// function mapStateToProps(state){
-//   return {
-//     chatrooms: state.chatrooms.chatrooms
-//   }
-// }
 
 export default ChatRoom

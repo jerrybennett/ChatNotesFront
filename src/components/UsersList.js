@@ -8,14 +8,23 @@ class UsersList extends Component {
     this.props.getChatRoomUsers(this.props.roomID)
   }
 
+  userList = () => {
+      if(!this.props.users) {
+        let cu = this.props.currentUser
+        return (<div key={cu.id}>{cu.username}</div>)
+      } else {
+        this.props.users.map(u =>
+            <div key={u.id}>{u.username}</div>
+          )
+    }
+  }
+
   render() {
     console.log(this.props)
+    console.log(this.userList)
     return (
       <div>
-        {this.props.messages.map(m => {
-            return <div key={m.id}>{m.text}</div>
-          }
-      )}
+        {this.userList()}
       </div>
     )
   }
@@ -23,7 +32,8 @@ class UsersList extends Component {
 
 function mapStateToProps(state){
   return {
-    users: state.users.users
+    users: state.users.users,
+    currentUser: state.users.currentUser
   }
 }
 

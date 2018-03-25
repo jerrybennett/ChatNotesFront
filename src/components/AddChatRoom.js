@@ -37,7 +37,7 @@ class AddChatRoom extends Component {
 function mapStateToProps(state) {
   return {
     name: state.name,
-    currentUser: state.currentUser
+    currentUser: state.users.currentUser
   }
 }
 

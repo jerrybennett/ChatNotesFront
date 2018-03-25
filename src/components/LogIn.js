@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { logInUser } from '../actions/messages'
-class LogIn extends Component {
+import { addUser } from '../actions/messages'
+import { withRouter } from 'react-router-dom'
+
+class Login extends Component {
 
   state = {
     username: '',
@@ -18,15 +20,19 @@ class LogIn extends Component {
     console.log("submitting message", this.state)
     e.preventDefault()
 
-    this.props.logInUser(this.state)
+    this.props.addUser(this.state)
 
     this.setState({
       username: '',
       email: ''
     })
+
+    console.log(this.props)
+    this.props.history.push('/chats')
   }
 
   render() {
+    console.log(this.props)
     return (
       <form onSubmit={this.handleSubmit}>
         <label>UserName</label>
@@ -48,4 +54,8 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { logInUser })(LogIn)
+export default connect(mapStateToProps, { addUser })(Login)
+
+
+
+fetch()

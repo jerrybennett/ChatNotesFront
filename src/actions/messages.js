@@ -72,9 +72,9 @@ export function addChatRoom(name){
   }
 }
 
-export function getChatRoomMessages(id) {
+export function getChatRoomMessages(id, userID) {
   return function(dispatch) {
-    MessagesApi.getChatRoomMessages(id)
+    MessagesApi.getChatRoomMessages(id, userID)
     .then(response => {
       dispatch({
         type: "FETCH_CHATROOM_MESSAGES",
@@ -96,12 +96,12 @@ export function getChatRoomUsers(id) {
   }
 }
 
-export function deleteChatRoom(id) {
+export function getCurrentUser(id) {
   return function(dispatch) {
-    MessagesApi.deleteChatRoom(id)
+    MessagesApi.getCurrentUser(id)
     .then(response => {
       dispatch({
-        type: "DELETE_CHATROOM",
+        type: "SET_CURRENT_USER",
         payload: response
       })
     })

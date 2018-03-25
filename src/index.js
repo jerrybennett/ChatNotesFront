@@ -10,8 +10,10 @@ import rootReducer from "./reducers/rootReducer"
 import Cable from 'actioncable'
 import { BrowserRouter } from 'react-router-dom'
 // import { loadState, saveState } from './localStorage'
-
+// import throttle from 'lodash/throttle'
+//
 // const persistedState = loadState();
+
 const composeEnhancers =
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -25,9 +27,11 @@ const enhancer = composeEnhancers(
 );
 const store = createStore(rootReducer, enhancer);
 
-// store.subscribe(() => {
-//   saveState(store.getState())
-// });
+// store.subscribe(throttle(() => {
+//   saveState({
+//     currentUser: store.getState().users.currentUser
+//   })
+// }, 1000));
 
 console.log(store)
 console.log(store.getState())

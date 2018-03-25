@@ -5,7 +5,7 @@ import { getChatRoomMessages } from "../actions/messages";
 class Messages extends Component {
 
   componentDidMount(){
-    this.props.getChatRoomMessages(this.props.roomID)
+    this.props.getChatRoomMessages(this.props.roomID, this.props.currentUser.id)
   }
 
   render() {
@@ -13,7 +13,11 @@ class Messages extends Component {
     return (
       <div>
         {this.props.messages.map(m => {
-            return <div key={m.id}>{m.text}</div>
+            return(
+              <div key={m.id}>
+                {m.text}
+              </div>
+            )
           }
       )}
       </div>
@@ -23,7 +27,8 @@ class Messages extends Component {
 
 function mapStateToProps(state){
   return {
-    messages: state.messages.messages
+    messages: state.messages.messages,
+    currentUser: state.users.currentUser
   }
 }
 
