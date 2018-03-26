@@ -11,6 +11,13 @@ function chatrooms(state = defaultState, action) {
       }
       break;
 
+    case "DELETE_CHATROOM":
+    console.log('hit me!')
+      return {
+        chatrooms: [ ...state.chatrooms, action.payload ]
+      }
+      break;
+
     case "FETCH_CHATROOMS":
       return { ...state, chatrooms: action.payload }
       break;
