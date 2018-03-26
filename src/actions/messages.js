@@ -4,6 +4,7 @@ export function addMessage(message, room, userID){
   return function(dispatch){
     MessagesApi.addMessage(message, room, userID)
     .then(response => {
+      console.log(response)
       dispatch({
         type: "ADD_MESSAGE",
         payload: response
@@ -19,6 +20,30 @@ export function fetchMessages() {
       dispatch({
         type: "FETCHED_MESSAGES",
         payload: messages
+      })
+    })
+  }
+}
+
+export function addNote(title, text, room, userID){
+  return function(dispatch){
+    MessagesApi.addNote(title, text, room, userID)
+    .then(response => {
+      dispatch({
+        type: "ADD_NOTE",
+        payload: response
+      })
+    })
+  }
+}
+
+export function fetchNotes(id) {
+  return function(dispatch) {
+    MessagesApi.fetchNotes(id)
+    .then(response => {
+      dispatch({
+        type: "FETCH_NOTES",
+        payload: response
       })
     })
   }
@@ -96,6 +121,10 @@ export function getChatRoomUsers(id) {
   }
 }
 
+export function clearMessages(){
+  return {type: "CLEAR_MESSAGES"}
+}
+
 export function getCurrentUser(id) {
   return function(dispatch) {
     MessagesApi.getCurrentUser(id)
@@ -108,46 +137,14 @@ export function getCurrentUser(id) {
   }
 }
 
-
-// sendMesssage = (event) => {
-//   fetch(`http://localhost:3000/chatrooms/${this.props.chatroom.id}/add_message`, {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       content: this.state.content,
-//       user_id: 1
-//     })
-//   })
-//   .then(res => {
-//     this.setState({
-//       content: "",
-//     })
-//   })
-// }
-//
-// handleChange = (event) => {
-//   this.setState({
-//     content: event.target.value
-//   })
-// }
-//
-// export function fetchMessages() {
+// export function getChatRoomNotes(id, userID) {
 //   return function(dispatch) {
-//     dispatch({ type: "FETCHING_MESSAGES" });
-//     MessagesApi.fetchMessages(1).then(messages => {
+//     MessagesApi.getChatRoomNotes(id, userID)
+//     .then(response => {
 //       dispatch({
-//         type: "FETCHED_MESSAGES",
-//         payload: 1
+//         type: "FETCH_CHATROOM_NOTES",
+//         payload: response
 //       })
 //     })
 //   }
 // }
-//
-// export function handleChange(e) {
-//     this.setState({
-//       message: e.target.value
-//     })
-//   }

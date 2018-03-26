@@ -74,8 +74,7 @@ class MessagesApi {
       body: JSON.stringify({
         user_id: userId
       })
-    })
-      .then(res => res.json())
+    }).then(res => res.json())
   }
 
   static getChatRoomUsers(id) {
@@ -98,6 +97,28 @@ class MessagesApi {
       },
       body: JSON.stringify({user})
     }).then(res => res.json())
+  }
+
+  static addNote(title, text, room, userID) {
+    // console.log("ADAPTER", message)
+    return fetch(`http://localhost:3000/api/v1/notes`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        title: title,
+        text: text,
+        user_id: userID,
+        chat_room_id: room
+      })
+    }).then(res => res.json())
+  }
+
+  static fetchNotes(id) {
+    return fetch(`http://localhost:3000/api/v1/users/${id}/notes`)
+    .then(res => res.json());
   }
 
 }

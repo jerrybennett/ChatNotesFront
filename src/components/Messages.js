@@ -4,8 +4,21 @@ import { getChatRoomMessages } from "../actions/messages";
 
 class Messages extends Component {
 
+  // componentWillReceiveProps(nextProps){
+  //
+  // }
+
+  fetchMessages(props){
+    if (props.currentUser.id){
+      props.getChatRoomMessages(props.roomID, props.currentUser.id)
+    }
+  }
   componentDidMount(){
-    this.props.getChatRoomMessages(this.props.roomID, this.props.currentUser.id)
+    this.interval = setInterval(()=>{this.fetchMessages(this.props)}, 1000)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
   }
 
   render() {
@@ -28,7 +41,7 @@ class Messages extends Component {
 function mapStateToProps(state){
   return {
     messages: state.messages.messages,
-    currentUser: state.users.currentUser
+    currentUser: state.users.currentUser,
   }
 }
 

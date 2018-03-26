@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AddMessage from './AddMessage'
 import Messages from './Messages'
+import AddNote from './AddNote'
+import Notes from './Notes'
 import { connect } from 'react-redux'
 import { getChatRoomMessages } from "../actions/messages";
 import {Route, Switch, Redirect} from 'react-router-dom'
@@ -27,7 +29,8 @@ class ChatRoom extends React.Component {
       <div>
         <AddMessage  roomID={ roomID } />
         <Messages roomID={ roomID } />
-        <UsersList roomID={ roomID } />
+        <AddNote roomID={ roomID } />
+        <Notes roomID={ roomID } />
       </div>
     );
   }

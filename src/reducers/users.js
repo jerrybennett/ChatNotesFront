@@ -1,6 +1,6 @@
 let defaultState = {
   users: [],
-  currentUser: null
+  currentUser: {}
 }
 
 function users(state = defaultState, action) {
