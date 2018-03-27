@@ -137,6 +137,30 @@ export function getCurrentUser(id) {
   }
 }
 
+export function updateNote(id, note) {
+  return function(dispatch) {
+    MessagesApi.updateNote(id, note)
+    .then(response => {
+      dispatch({
+        type: "SET_CURRENT_USER",
+        payload: response
+      })
+    })
+  }
+}
+
+export function deleteNote(id) {
+  return function(dispatch) {
+    MessagesApi.deleteNote(id)
+    .then(response => {
+      dispatch({
+        type: "DELETE_NOTE",
+        payload: id
+      })
+    })
+  }
+}
+
 // export function getChatRoomNotes(id, userID) {
 //   return function(dispatch) {
 //     MessagesApi.getChatRoomNotes(id, userID)

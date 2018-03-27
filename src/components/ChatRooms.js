@@ -6,11 +6,17 @@ import Notes from './Notes'
 class ChatRooms extends React.Component {
   render () {
     return (
-      <div>
-        <h3>All Chat Rooms</h3>
-        <AddChatRoom />
-        <ChatRoomsList />
-        <Notes />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h3>All Chat Rooms</h3>
+            <AddChatRoom />
+            <ChatRoomsList />
+          </div>
+          <div className="col">
+            <Notes />
+          </div>
+        </div>
       </div>
     );
   }

@@ -26,3 +26,62 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.tile {
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+  background: lightyellow;
+  float: left;
+  font-size: 11px;
+  text-align: left;
+}
+
+.input {
+  border: 0;
+  background: none;
+  outline: none;
+  margin-top:10px;
+  width: 140px;
+  font-size: 11px;
+}
+
+.input:focus {
+  border: solid 1px lightgrey;
+}
+
+textarea {
+  resize: none;
+  height: 90px;
+  font-size: 11px;
+}
+
+
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+  background-color: #ddd;
+  color:            blue;
+  }
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+  background-color: #ddd;
+  color:            #f0f;
+  }
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  none;
+  font-weight:      bold;
+  background-color: blue;
+  color:            blue;
+  }
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+  background-color: black;
+  color: white;
+  }

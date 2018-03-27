@@ -26,14 +26,24 @@ class AddNote extends Component {
     })
   }
 
+  // handleBlur = () => {
+  //   this.props.addNote(this.state.title, this.state.text, this.props.roomID, this.props.currentUser.id)
+  //   this.setState({
+  //     title: '',
+  //     text: ''
+  //   })
+  // }
+
   render () {
     console.log(this.props.currentUser)
     return (
+      <div className="tile">
       <form onSubmit={this.handleSend}>
-        <input type="text" name="title" value={this.state.title} onChange={this.handleInput} />
-        <input type="text" name="text" value={this.state.text} onChange={this.handleInput} />
-        <input type="submit" name="submit" />
+        <input className="input" type="text" name="title" placeholder="Enter a Title" value={this.state.title} onChange={this.handleInput} />
+        <textarea className="input" type="textarea" name="text" placeholder="Make a Note!" value={this.state.text} onChange={this.handleInput} />
+        <input type="submit" name="submit" value="Save Note" />
       </form>
+      </div>
     )
   }
 }

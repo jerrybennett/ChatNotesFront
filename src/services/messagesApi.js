@@ -121,5 +121,22 @@ class MessagesApi {
     .then(res => res.json());
   }
 
+  static updateNote(id, note) {
+    return fetch(`http://localhost:3000/api/v1/notes/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({note})
+    }).then(res => res.json())
+  }
+
+  static deleteNote(id) {
+    return fetch(`http://localhost:3000/api/v1/notes/${id}`, {
+      method: "DELETE",
+    })
+  }
+
 }
 export default MessagesApi;

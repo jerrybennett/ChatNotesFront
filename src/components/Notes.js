@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchNotes, clearMessages } from "../actions/messages";
+import { fetchNotes, clearMessages, deleteNote } from "../actions/messages";
 
 class Notes extends Component {
 
@@ -37,21 +37,33 @@ class Notes extends Component {
   //   clearInterval(this.interval)
   // }
 
+  handleDelete = (e) => {
+    console.log(e.target.parentNode.id)
+    this.props.deleteNote(e.target.parentNode.id)
+    this.props.fetchNotes(this.props.currentUser.id)
+  }
+
+  userNotes = () => {
+    return this.props.notes.map(n => {
+      if(n.user.id === this.props.currentUser.id) {
+        return(
+          <div id={n.id} className="tile" key={n.id}>
+            <p onClick={this.handleDelete}>x</p>
+            <p class="font-weight-bold">{n.title}</p>
+            <p>{n.text}</p>
+            <p>from chatroom: {n.chat_room.name}</p>
+          </div>
+        )
+      }
+    })
+  }
+
   render() {
     console.log(this.props)
     return (
       <div>
-        <h3>All Notes</h3>
-        {this.props.notes.map(n => {
-            return(
-              <div key={n.id}>
-                <h4>{n.title}</h4>
-                <p>{n.text}</p>
-                <p>from chatroom: {n.chat_room.name}</p>
-              </div>
-            )
-          }
-      )}
+        <h3>Notes</h3>
+        {this.userNotes()}
       </div>
     )
   }
@@ -65,4 +77,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, { fetchNotes, clearMessages })(Notes)
+export default connect(mapStateToProps, { fetchNotes, clearMessages, deleteNote })(Notes)

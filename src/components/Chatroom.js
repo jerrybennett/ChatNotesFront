@@ -26,11 +26,17 @@ class ChatRoom extends React.Component {
 
     // pass down the chat mesages to the messages component
     return (
-      <div>
-        <AddMessage  roomID={ roomID } />
-        <Messages roomID={ roomID } />
-        <AddNote roomID={ roomID } />
-        <Notes roomID={ roomID } />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <Messages roomID={ roomID } />
+            <AddMessage  roomID={ roomID } />  
+          </div>
+          <div className="col">
+            <AddNote roomID={ roomID } />
+            <Notes roomID={ roomID } />
+          </div>
+        </div>
       </div>
     );
   }

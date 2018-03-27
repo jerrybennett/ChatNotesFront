@@ -36,6 +36,12 @@ function messages(state = defaultState, action) {
       return {
         ...state, retrieved: false
       }
+
+    case "DELETE_NOTE":
+      return {
+        ...state, notes: [...state.notes.slice(0, action.payload)],
+       ...state, notes: [...state.notes.slice(action.payload+ 1)]
+      }
     // case "FETCHED_MESSAGES":
     //   return { ...state, messages: action.payload }
     //   break;

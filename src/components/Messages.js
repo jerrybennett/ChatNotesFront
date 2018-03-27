@@ -23,14 +23,24 @@ class Messages extends Component {
 
   render() {
     console.log(this.props)
+
     return (
       <div>
         {this.props.messages.map(m => {
-            return(
-              <div key={m.id}>
-                {m.text}
-              </div>
-            )
+          let timeStamp = new Date(m.created_at)
+          if(this.props.currentUser.id == m.user.id) {
+            return <div className="text-right" key={m.id}>
+              <p>{m.user.username}</p>
+              {m.text}
+              {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}
+            </div>
+          } else {
+            return <div className="text-left" key={m.id}>
+              <p>{m.user.username}</p>
+              {m.text}
+              {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}
+            </div>
+          }
           }
       )}
       </div>
