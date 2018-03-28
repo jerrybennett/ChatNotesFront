@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #FFF;
+  color: #2e3338
 }
 
 .App-logo {
@@ -35,9 +37,11 @@
   float: left;
   font-size: 11px;
   text-align: left;
+  border: 2px solid #dedede;
+  padding: 10px;
 }
 
-.input {
+/* .input {
   border: 0;
   background: none;
   outline: none;
@@ -48,7 +52,7 @@
 
 .input:focus {
   border: solid 1px lightgrey;
-}
+} */
 
 textarea {
   resize: none;
@@ -58,30 +62,111 @@ textarea {
 
 
 a:link    {
-  /* Applies to all unvisited links */
+   /* Applies to all unvisited links */
   text-decoration:  none;
   font-weight:      bold;
-  background-color: #ddd;
-  color:            blue;
+  /* background-color: #ddd; */
+  color:            #00A9E1;
   }
 a:visited {
-  /* Applies to all visited links */
+   /* Applies to all visited links */
   text-decoration:  none;
   font-weight:      bold;
-  background-color: #ddd;
-  color:            #f0f;
+  /* background-color: #ddd; */
+  color:            #00A9E1;
   }
 a:hover   {
   /* Applies to links under the pointer */
   text-decoration:  none;
   font-weight:      bold;
-  background-color: blue;
-  color:            blue;
+  /* background-color: #ddd; */
+  color:            #f06449;
   }
 a:active  {
   /* Applies to activated links */
-  text-decoration:  underline;
+  text-decoration:  none;
   font-weight:      bold;
   background-color: black;
   color: white;
   }
+
+.chatList {
+  overflow: scroll;
+  border: 2px solid #dedede;
+  background-color: #white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  height: 600px;
+}
+
+.userMessage {
+  border: 2px solid #dedede;
+  background-color: #99dcf3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+.userMessage p {
+  margin: 0;
+}
+
+.userMessage span {
+  font-size: 11px;
+  text-align: left;
+}
+
+.notesDivs {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.notesForm {
+  margin: 10px 0;
+}
+
+.notesForm input {
+  margin-bottom: 10px;
+}
+
+footer form input {
+  min-width: 70%;
+}
+
+#signUpForm {
+  margin-top: 30px;
+  max-width: 50%;
+}
+
+.sndBtn {
+  border: 2px solid #dedede;
+  background-color: #5cb85c;
+  border-radius: 5px;
+  color: white;
+  /* padding: 10px;
+  margin: 10px 0; */
+}
+.sndBtn:hover {
+  border-color: #ccc;
+  background-color: #ddd;
+  color: #2e3338;
+}
+
+#home {
+  padding-left: 15px;
+}
+
+#navMargin {
+  margin-bottom: 10px;
+}
+
+#logoFont {
+  font-family: 'Lobster', cursive;
+}

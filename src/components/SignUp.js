@@ -34,15 +34,24 @@ class SignUp extends Component {
   render() {
     console.log(this.props)
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>UserName</label>
-        <input type="text" name="username" value={this.state.username} onChange={this.handleInput} />
-        <br />
-        <label>eMail</label>
-        <input type="text" name="email" value={this.state.email} onChange={this.handleInput} />
-        <br />
-        <input type="submit"/>
-      </form>
+      <div className="container" id="signUpForm">
+        <div className="row">
+          <div className="col justify-content-center align-items-center">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label>User Name</label>
+                <input class="form-control" type="text" name="username" value={this.state.username} onChange={this.handleInput} />
+
+                <label>eMail</label>
+                <input class="form-control" type="text" name="email" value={this.state.email} onChange={this.handleInput} />
+
+                </div>
+              <button type="submit" className="btn btn-primary">Sign Up</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
     )
   }
 }

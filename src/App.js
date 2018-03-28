@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.match.params)
     return (
       <div className='App'>
         <NavBar />

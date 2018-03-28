@@ -29,7 +29,7 @@ class AddMessage extends Component {
     return (
       <form onSubmit={this.handleSend}>
         <input type="text" name="message" value={this.state.message} onChange={this.handleInput} />
-        <input type="submit" name="submit" />
+        <button type="submit" name="submit" className="sndBtn">Send</button>
       </form>
     )
   }

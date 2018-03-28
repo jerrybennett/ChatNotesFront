@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import * as ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { getChatRoomMessages } from "../actions/messages";
 
@@ -14,35 +15,60 @@ class Messages extends Component {
     }
   }
   componentDidMount(){
-    this.interval = setInterval(()=>{this.fetchMessages(this.props)}, 1000)
+    this.interval = setInterval(() => {
+      this.fetchMessages(this.props)
+      // this.scrollToBottom();
+    }, 1000)
   }
 
   componentWillUnmount(){
     clearInterval(this.interval)
   }
 
-  render() {
-    console.log(this.props)
+//   componentDidMount() {
+//   this.scrollToBottom();
+// }
 
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    this.el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+
+  render() {
+    // console.log(this.props)
     return (
-      <div>
+      <div className="chatList">
         {this.props.messages.map(m => {
           let timeStamp = new Date(m.created_at)
-          if(this.props.currentUser.id == m.user.id) {
-            return <div className="text-right" key={m.id}>
-              <p>{m.user.username}</p>
-              {m.text}
-              {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}
-            </div>
+          if(m.user.id === this.props.currentUser.id) {
+            return (
+                <div key={m.id} className="userMessage">
+                  <p className="text-right" >{m.text}</p>
+                  <div className="text-left">
+                    <span>{m.user.username} {`//`} {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}</span>
+                  </div>
+                <div ref={el => { this.el = el; }} />
+              </div>
+          )
           } else {
-            return <div className="text-left" key={m.id}>
-              <p>{m.user.username}</p>
-              {m.text}
-              {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}
-            </div>
+            return (
+                <div key={m.id} className="userMessage darker">
+                  <p className="text-left" >{m.text}</p>
+                  <div className="text-right">
+                    <span>{m.user.username} {`//`} {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}</span>
+                  </div>
+                  <div ref={el => { this.el = el; }} />
+                </div>
+            )
           }
-          }
-      )}
+        }
+      )
+    }
+      <div ref={el => { this.el = el; }} />
       </div>
     )
   }

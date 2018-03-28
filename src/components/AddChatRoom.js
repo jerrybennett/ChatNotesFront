@@ -27,8 +27,8 @@ class AddChatRoom extends Component {
     console.log(this.props)
     return (
       <form onSubmit={this.handleSend}>
-        <input type="text" name="name" placeholder="Add a Chatroom" value={this.state.name} onChange={this.handleInput} />
-        <input type="submit" name="submit" />
+        <input type="text" name="name" placeholder="Add a chat" value={this.state.name} onChange={this.handleInput} />
+        <button className="sndBtn" type="submit" name="submit" >Create</button>
       </form>
     )
   }

@@ -18,9 +18,9 @@ class ChatRoomsList extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
+      <div className="chatList">
         {this.props.chatrooms.map(rm =>
-          <Link class="text-justify"
+          <Link className="text-justify"
             to={`/chatroom/${rm.id}`}
             id={rm.id}
             key={rm.id}

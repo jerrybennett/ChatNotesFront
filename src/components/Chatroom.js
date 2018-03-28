@@ -1,36 +1,24 @@
 import React, { Component } from 'react'
-import AddMessage from './AddMessage'
-import Messages from './Messages'
+// import AddMessage from './AddMessage'
+// import Messages from './Messages'
 import AddNote from './AddNote'
 import Notes from './Notes'
+import ChatContainer from './ChatContainer'
+import NoteContainer from './NoteContainer'
 import { connect } from 'react-redux'
 import { getChatRoomMessages } from "../actions/messages";
 import {Route, Switch, Redirect} from 'react-router-dom'
-import UsersList from './UsersList'
 
 class ChatRoom extends React.Component {
 
-  // componentDidMount() {
-  //   // this.props.fetchChatrooms()
-  //   // this.props.getChatRoomMessages()
-  //   // dispatch some action to fetch based on the id
-  // }
-
   render () {
     let roomID = parseInt(this.props.match.params.id)
-    // console.log(this.props.match.params)
-    // console.log(this.props.chatrooms)
-    // console.log('Chatroom', this.props)
-    // if i know the id you can fetch based on id
 
-
-    // pass down the chat mesages to the messages component
     return (
-      <div className="container">
+      <div>
         <div className="row">
           <div className="col">
-            <Messages roomID={ roomID } />
-            <AddMessage  roomID={ roomID } />  
+            <ChatContainer roomID={ roomID } />
           </div>
           <div className="col">
             <AddNote roomID={ roomID } />

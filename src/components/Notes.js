@@ -4,10 +4,6 @@ import { fetchNotes, clearMessages, deleteNote } from "../actions/messages";
 
 class Notes extends Component {
 
-  // componentDidMount() {
-  //   this.props.fetchNotes(this.props.currentUser.id)
-  // }
-
   componentWillReceiveProps(nextProps){
     if (nextProps.currentUser.id && !nextProps.retrieved){
         nextProps.fetchNotes(nextProps.currentUser.id)
@@ -18,40 +14,27 @@ class Notes extends Component {
     this.props.clearMessages()
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if (nextProps.currentUser.id && !nextProps.recieved){
-  //     nextProps.getChatRoomNotes(nextProps.roomID, nextProps.currentUser.id)
-  //   }
-  // }
-  //
-  // fetchNotes(props){
-  //   if (props.currentUser.id){
-  //     props.getChatRoomMessages(props.roomID, props.currentUser.id)
-  //   }
-  // }
-  // componentDidMount(){
-  //   this.interval = setInterval(()=>{this.fetchNotes(this.props)}, 1000)
-  // }
-  //
-  // componentWillUnmount(){
-  //   clearInterval(this.interval)
-  // }
-
   handleDelete = (e) => {
-    console.log(e.target.parentNode.id)
-    this.props.deleteNote(e.target.parentNode.id)
+    // console.log(e.target.parentNode.parentNode.parentNode.id)
+    this.props.deleteNote(e.target.parentNode.parentNode.parentNode.id)
     this.props.fetchNotes(this.props.currentUser.id)
   }
 
   userNotes = () => {
     return this.props.notes.map(n => {
+      let timeStamp = new Date(n.created_at)
       if(n.user.id === this.props.currentUser.id) {
         return(
           <div id={n.id} className="tile" key={n.id}>
-            <p onClick={this.handleDelete}>x</p>
+            <span>
+              <button onClick={this.handleDelete} type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </span>
+
             <p class="font-weight-bold">{n.title}</p>
             <p>{n.text}</p>
-            <p>from chatroom: {n.chat_room.name}</p>
+            <p>from chatroom: {n.chat_room.name} on {timeStamp.getMonth()}/{timeStamp.getDate()} at {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}</p>
           </div>
         )
       }
@@ -61,7 +44,7 @@ class Notes extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
+      <div className="notesDivs">
         <h3>Notes</h3>
         {this.userNotes()}
       </div>

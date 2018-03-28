@@ -37,12 +37,14 @@ class AddNote extends Component {
   render () {
     console.log(this.props.currentUser)
     return (
-      <div className="tile">
-      <form onSubmit={this.handleSend}>
-        <input className="input" type="text" name="title" placeholder="Enter a Title" value={this.state.title} onChange={this.handleInput} />
-        <textarea className="input" type="textarea" name="text" placeholder="Make a Note!" value={this.state.text} onChange={this.handleInput} />
-        <input type="submit" name="submit" value="Save Note" />
-      </form>
+      <div className="container">
+        <form onSubmit={this.handleSend}>
+          <div className="form-group notesForm">
+            <input className="input form-control" type="text" name="title" placeholder="Note Title" value={this.state.title} onChange={this.handleInput} />
+            <textarea className="input form-control" type="textarea" name="text" placeholder="Take a Note!" value={this.state.text} onChange={this.handleInput} />
+          </div>
+          <button className="sndBtn" type="submit" name="submit">Save Note</button>
+        </form>
       </div>
     )
   }

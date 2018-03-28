@@ -9,7 +9,7 @@ class ChatRooms extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h3>All Chat Rooms</h3>
+            <h3>Chat Rooms</h3>
             <AddChatRoom />
             <ChatRoomsList />
           </div>
