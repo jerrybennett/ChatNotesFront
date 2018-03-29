@@ -9,19 +9,23 @@ import { connect } from 'react-redux'
 import { getChatRoomMessages } from "../actions/messages";
 import {Route, Switch, Redirect} from 'react-router-dom'
 
+
+
 class ChatRoom extends React.Component {
+
 
   render () {
     let roomID = parseInt(this.props.match.params.id)
 
+    console.log(this.props)
     return (
-      <div>
+      <div id={roomID}>
         <div className="row">
           <div className="col">
             <ChatContainer roomID={ roomID } />
           </div>
           <div className="col">
-            <AddNote roomID={ roomID } />
+            <AddNote id="addNoteMargin" roomID={ roomID } />
             <Notes roomID={ roomID } />
           </div>
         </div>
@@ -30,4 +34,12 @@ class ChatRoom extends React.Component {
   }
 }
 
-export default ChatRoom
+// export default ChatRoom
+function mapStateToProps(state){
+  return {
+    chatrooms: state.chatrooms.chatrooms,
+    currentUser: state.users.currentUser
+  }
+}
+
+export default connect(mapStateToProps, null)(ChatRoom);

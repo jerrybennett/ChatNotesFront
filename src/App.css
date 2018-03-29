@@ -169,4 +169,10 @@ footer form input {
 
 #logoFont {
   font-family: 'Lobster', cursive;
+  font-size: 1.5em;
+  color:            #00A9E1;
+}
+
+#addNoteMargin {
+  padding-top: 75px;
 }

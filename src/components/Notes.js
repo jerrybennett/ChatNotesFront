@@ -28,14 +28,14 @@ class Notes extends Component {
         return(
           <div id={n.id} className="tile" key={n.id}>
             <span>
-              <button onClick={this.handleDelete} type="button" class="close" aria-label="Close">
+              <button onClick={this.handleDelete} type="button" className="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </span>
 
-            <p class="font-weight-bold">{n.title}</p>
+            <p className="font-weight-bold">{n.title}</p>
             <p>{n.text}</p>
-            <p>from chatroom: {n.chat_room.name} on {timeStamp.getMonth()}/{timeStamp.getDate()} at {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}</p>
+            <p>from chatroom: {n.chat_room.name} on {timeStamp.getMonth()}/{timeStamp.getDate()} at {`${timeStamp.getHours()}:${timeStamp.getMinutes() > 9 ? timeStamp.getMinutes() : `0${timeStamp.getMinutes()}`}`}</p>
           </div>
         )
       }
@@ -43,7 +43,7 @@ class Notes extends Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div className="notesDivs">
         <h3>Notes</h3>

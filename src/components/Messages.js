@@ -35,11 +35,12 @@ class Messages extends Component {
 
   scrollToBottom() {
     this.el.scrollIntoView({ behavior: 'smooth' });
+    console.log(this.el)
   }
 
 
   render() {
-    // console.log(this.props)
+    console.log(this.props)
     return (
       <div className="chatList">
         {this.props.messages.map(m => {
@@ -49,9 +50,9 @@ class Messages extends Component {
                 <div key={m.id} className="userMessage">
                   <p className="text-right" >{m.text}</p>
                   <div className="text-left">
-                    <span>{m.user.username} {`//`} {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}</span>
+                    <span>{m.user.username} {`//`} {`${timeStamp.getHours()}:${timeStamp.getMinutes() > 9 ? timeStamp.getMinutes() : `0${timeStamp.getMinutes()}`}`}</span>
                   </div>
-                <div ref={el => { this.el = el; }} />
+                <div ref={el => { this.el = el; }}></div>
               </div>
           )
           } else {
@@ -59,7 +60,7 @@ class Messages extends Component {
                 <div key={m.id} className="userMessage darker">
                   <p className="text-left" >{m.text}</p>
                   <div className="text-right">
-                    <span>{m.user.username} {`//`} {`${timeStamp.getHours()}:${timeStamp.getMinutes()}`}</span>
+                    <span>{m.user.username} {`//`} {`${timeStamp.getHours()}:${timeStamp.getMinutes() > 9 ? timeStamp.getMinutes() : `0${timeStamp.getMinutes()}`}`}</span>
                   </div>
                   <div ref={el => { this.el = el; }} />
                 </div>
