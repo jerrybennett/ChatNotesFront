@@ -35,7 +35,7 @@ class AddNote extends Component {
   // }
 
   render () {
-    console.log(this.props.currentUser)
+    // console.log(this.props.currentUser)
     return (
       <div className="container">
         <form onSubmit={this.handleSend}>

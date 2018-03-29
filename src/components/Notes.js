@@ -4,6 +4,7 @@ import { fetchNotes, clearMessages, deleteNote } from "../actions/messages";
 
 class Notes extends Component {
 
+
   componentWillReceiveProps(nextProps){
     if (nextProps.currentUser.id && !nextProps.retrieved){
         nextProps.fetchNotes(nextProps.currentUser.id)

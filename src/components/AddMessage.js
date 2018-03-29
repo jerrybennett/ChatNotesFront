@@ -25,7 +25,7 @@ class AddMessage extends Component {
   }
 
   render () {
-    console.log(this.props.currentUser)
+    // console.log(this.props.currentUser)
     return (
       <form onSubmit={this.handleSend}>
         <input type="text" name="message" value={this.state.message} onChange={this.handleInput} />
