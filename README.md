@@ -22,6 +22,7 @@ In order to run the app please do the following:
 • Leveraged polling and component lifecycles in order to simulate live chat rooms
 
 ## Concerns and Issues
+• Refactoring code to implement websockets
 • Working on login and logout with JWT and BCrypt
 • Working on displaying "loading" while data if fetched through multiple fetch cycles
 • Working on editing notes in place
