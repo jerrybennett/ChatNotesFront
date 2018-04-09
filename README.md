@@ -7,7 +7,8 @@ An app where you can create a chat room and take notes while chatting
 In order to run the app please do the following:
 1. Fork or download this repository and ([GitHub - jerrybennett/chat-notes-backend: chat-notes-backend](https://github.com/jerrybennett/chat-notes-backend))
 2. Open the "chat-notes-backend" file in terminal
-3. Run `rake db:migrate` to set up the database
+3. Run `bundle install`
+4. Run `rake db:migrate` to set up the database
 5. Run `rails s` to start in browser
 6. Open 'ChatNotesFront' in terminal
 7. Run `npm install`
