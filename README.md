@@ -1,3 +1,47 @@
+# ChatNotes
+
+## Overview 
+An app where you can create a chat room and take notes while chatting
+
+## Site Features
+Users can browse the site and see all movies, reviews and genres. Users can participate and add their own movies, comments and ratings.
+
+## Run It
+In order to run the app please do the following:
+1. Fork or download this repository and ([GitHub - jerrybennett/chat-notes-backend: chat-notes-backend](https://github.com/jerrybennett/chat-notes-backend))
+2. Open the "chat-notes-backend" file in terminal
+3. Run `rake db:migrate` to set up the database
+5. Run `rails s` to start in browser
+6. Open 'ChatNotesFront' in terminal
+7. Run `npm install`
+8. Run `npm start`
+9. Follow the command prompt to open server on a different port
+10. "Sign up" to add content!
+
+## Tech Used
+• Developed the front end using React and Bootstrap CSS
+• Utilized Redux for state management and efficient development
+• Built the backend API with Ruby on Rails and Active Record
+• Leveraged polling and component lifecycles in order to simulate live chat rooms
+
+## Concerns and Issues
+• Working on login and logout with JWT and BCrypt
+• Working on displaying "loading" while data if fetched through multiple fetch cycles
+• Working on editing notes in place
+
+## License 
+The MIT License (MIT)
+
+Copyright (c) 2018 Jerry Bennett
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
