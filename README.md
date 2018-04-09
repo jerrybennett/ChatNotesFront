@@ -3,9 +3,6 @@
 ## Overview 
 An app where you can create a chat room and take notes while chatting
 
-## Site Features
-Users can browse the site and see all movies, reviews and genres. Users can participate and add their own movies, comments and ratings.
-
 ## Run It
 In order to run the app please do the following:
 1. Fork or download this repository and ([GitHub - jerrybennett/chat-notes-backend: chat-notes-backend](https://github.com/jerrybennett/chat-notes-backend))
