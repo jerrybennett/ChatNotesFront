@@ -6,18 +6,16 @@ import Notes from './Notes'
 import ChatContainer from './ChatContainer'
 import NoteContainer from './NoteContainer'
 import { connect } from 'react-redux'
-import { getChatRoomMessages } from "../actions/messages";
+// import { getChatRoomMessages } from "../actions/messages";
 import {Route, Switch, Redirect} from 'react-router-dom'
 
-
-
-class ChatRoom extends React.Component {
-
+class ChatRoom extends Component {
 
   render () {
     let roomID = parseInt(this.props.match.params.id)
 
     console.log(this.props)
+
     return (
       <div id={roomID}>
         <div className="row">

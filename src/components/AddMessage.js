@@ -9,14 +9,12 @@ class AddMessage extends Component {
   }
 
   handleInput = (e) => {
-    // console.log(this.state.message)
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
   handleSend = (e) => {
-    // console.log("submitting message", this.state)
     e.preventDefault()
     this.props.addMessage(this.state.message, this.props.roomID, this.props.currentUser.id)
     this.setState({
@@ -25,7 +23,6 @@ class AddMessage extends Component {
   }
 
   render () {
-    // console.log(this.props.currentUser)
     return (
       <form onSubmit={this.handleSend}>
         <input type="text" name="message" value={this.state.message} onChange={this.handleInput} />

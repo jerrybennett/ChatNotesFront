@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     } else {
       return (
         <nav className="navbar navbar-dark bg-dark">
-          <a id="logoFont" className="navabar-brand" href="#">ChatNotes</a>
+          <a id="logoFont" className="navabar-brand">ChatNotes</a>
           <div className="navbar-nav ml-auto">
             <a className="nav-item nav-link" href="/chats">Home</a>
           </div>

@@ -10,7 +10,6 @@ class AddNote extends Component {
   }
 
   handleInput = (e) => {
-    // console.log(this.state.message)
     this.setState({
       [e.target.name]: e.target.value
     })

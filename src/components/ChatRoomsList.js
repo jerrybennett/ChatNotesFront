@@ -24,9 +24,9 @@ class ChatRoomsList extends Component {
             to={`/chatroom/${rm.id}`}
             id={rm.id}
             key={rm.id}
-            rmInfo={this.props.rm}
+            rminfo={this.props.rm}
 
-               >
+          >
             <p>{rm.id}) {rm.name}</p>
           </Link>
         )}

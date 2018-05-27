@@ -25,10 +25,6 @@ class Messages extends Component {
     clearInterval(this.interval)
   }
 
-//   componentDidMount() {
-//   this.scrollToBottom();
-// }
-
   componentDidUpdate() {
     this.scrollToBottom();
   }
